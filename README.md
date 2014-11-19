@@ -12,11 +12,15 @@ Android增量更新工具，可实现程序补丁式更新。这个开源项目�
 ----
 ##Usage
 ```
-首先你需要得到旧版和新版apk的差分文件，然后你就可以通过本项目实现的功能去与它合并，完成合并的方法：调用PatcherUtils.patcher(oldApkPath,newApkPath,patchPath)即可以生成新apk文到指定的路径中(newApkPath)。
+首先你需要得到旧版和新版apk的差分文件，然后你就可以通过本项目实现的功能去与它合并，完成合并的方法：
+调用PatcherUtils.patcher(oldApkPath,newApkPath,patchPath)即可以生成新apk文到指定的路径中(newApkPath)。
 
-引入自己项目时注意改jni里的方法名，例如：native方法在com.patcher包里的PatcherUtils类里，那么你应该在jni目录里将 Patcher.c和Patcher.h的接口方法里改为Java_com_patcher_PatcherUtils_patcher。需注意com_patcher为你的native方法所在包名，Patcher为你的native方法所在类名，patcher为你的native方法名。
+引入自己项目时注意改jni里的方法名，例如：native方法在com.patcher包里的PatcherUtils类里，那么你应该在
+jni目录里将 Patcher.c和Patcher.h的接口方法里改为Java_com_patcher_PatcherUtils_patcher。需注意的地方：
+com_patcher为你的native方法所在包名，Patcher为你的native方法所在类名，patcher为你的native方法名。
 
-如果导入项目且你的ndk配置正确时发现jni文件报错，你可以打开Problems调试窗口把jni代码里的错误提示删除，重新编译生成.so文件即可，jni里的源码是可以正确生成.so文件的。
+如果导入项目且你的ndk配置正确时发现jni文件报错，你可以打开Problems调试窗口把jni代码里的错误提示删除，
+重新编译生成.so文件即可，jni里的源码是可以正确生成.so文件的。
 
 ```
 
